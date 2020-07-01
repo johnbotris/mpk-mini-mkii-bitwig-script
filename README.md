@@ -16,6 +16,7 @@ Clone this repo into your Controller Scripts directory which by default is:
 
 Then using the MPK MkII Editor, load _at least_ `program1.mk2` from `mk2-programs/` onto your MPK (The controller script currently only provides mappings for the first program, so the other 3 can be free for other uses)
 
+Then tell Bitwig to load the controller by going to _Dashboard -> Settings -> Controllers_, selecting "add controller" and choosing "MPKmini MKII" under "Akai"
 
 # How to use
 
