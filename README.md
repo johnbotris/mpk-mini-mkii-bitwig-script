@@ -8,7 +8,7 @@ Clone this repo into your Controller Scripts directory which by default is:
 
 * Linux: _~/Bitwig Studio/Controller Scripts/_
 
-* Windows: _%USERPROFILE%\Documents\Bitwig Studio\Controller Scripts\_
+* Windows: _%USERPROFILE%\\Documents\\Bitwig Studio\\Controller Scripts\\_
 
 * Mac: _~/Documents/Bitwig Studio/Controller Scripts_
 
