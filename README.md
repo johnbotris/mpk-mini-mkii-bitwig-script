@@ -14,7 +14,7 @@ Clone this repo into your Controller Scripts directory which by default is:
 
 (You can clone it wherever you want, just make sure the contents of `controller-scripts/` end up within your Controller Scripts somehow
 
-Then using the MPK MkII Editor, load _at least_ `program1.mk2` from `mk2-programs/` onto your MPK (The controller script currently only provides mappings for the first program, so the other 3 can be free for other uses if you want)
+Then using the MPK MkII Editor, load _at least_ `program1.mk2` from `mk2-programs/` onto your MPK (The controller script currently only provides mappings for the first program, so the other 3 can be free for other uses)
 
 
 # How to use
