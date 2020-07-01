@@ -7,14 +7,13 @@ host.defineMidiPorts(1, 1);
 
 function init() {
 
-    const NUM_PARAM_PAGES = 8;
-    const NUM_USER_CONTROLS = 8;
+    const NUM_REMOTE_CONTROL_PARAMS = 8; // 8 per page?
 
     const application = host.createApplication();
     const transport = host.createTransport();
     const track = host.createCursorTrack(2, 0);
     const device = track.createCursorDevice("cursorDevice1", "Device Cursor", 2, CursorDeviceFollowMode.FOLLOW_SELECTION);
-    const remoteControls = device.createCursorRemoteControlsPage(NUM_PARAM_PAGES);
+    const remoteControls = device.createCursorRemoteControlsPage(NUM_REMOTE_CONTROL_PARAMS);
 
     let functionMap = createFunctionMap(host, application, transport, track, device, remoteControls);
 
