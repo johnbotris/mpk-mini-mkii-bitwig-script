@@ -1,6 +1,6 @@
 # MPK Mini MKII Programs + Controller Scripts for Bitwig
 
-The [original controller script](https://github.com/trixtan/MpkMiniMkIIBC) for the MPK mini MkII seems to have been thoroughly abandoned, and no longer works with (at least) newer versions of Bitwig. I had planned on simply fixing that up but I ended up completely gutting it making a brand new controller
+The [original controller script](https://github.com/trixtan/MpkMiniMkIIBC) for the MPK mini MkII seems to have been thoroughly abandoned, and no longer works with (at least) newer versions of Bitwig. I had planned on simply fixing that up but I ended up completely gutting it and making a brand new controller
 
 # Installation
 
