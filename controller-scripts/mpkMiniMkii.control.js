@@ -2,7 +2,7 @@ loadAPI(11);
 
 load("functionMap.js");
 
-host.defineController("Akai", "MPKmini mkII", "1.0", "20dee110-bbd5-11ea-b3de-0242ac130004");
+host.defineController("Akai", "MPKmini mkII", "0.1", "20dee110-bbd5-11ea-b3de-0242ac130004");
 host.defineMidiPorts(1, 1);
 
 function init() {
