@@ -32,7 +32,7 @@ When in CC mode, the drum pads have the following mapping:
 
 ![diagram of the drum pad CC mappings](Diagram.png)
 
-There are still 3 pads that do nothing, I'm open to suggestions.
+There is still 1 pad that does nothing, I'm open to suggestions.
 
 The Joystick maps to pitch bend on the Y axis, and send MIDI CC messages centered around 60 on the X axis (you can have it to send 0-127 on either side with separate data1 bytes via the MkII Editor, if you want). This you can map the usual way by selecting any control you want.
 
