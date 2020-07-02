@@ -12,6 +12,12 @@ const TRACK = {};
  * check data2 because a pad sends a message on press and release
  */
 
+
+/*
+ * Using addValueObserver to show popups from the pad functions is more or less necessary in order keep the popups in sync with the actual state of bitwig
+ * it's annoying that it also causes popups to show when interacting directly with bitwig and also at the initialization of the script. 
+ * I can't see a way around this right now but the popups can be turned off by making the folloing constant false
+ */
 const DO_SHOW_POPUP = true;
 
 function popup(message) {
@@ -23,27 +29,29 @@ function popup(message) {
 
 // Takes a SettableBooleanValue to toggle
 function toggleFunction(name, value) {
-    value.markInterested();
+    const onChange = (newValue) => { popup(`${name} ${newValue ? "On" : "Off"}`); };
+    value.addValueObserver(onChange);
     return (status, data1, data2) => {
-        this.name = name;
         if (data2 !== 0) {
             value.toggle();
-            // for some reason get gets the value before the toggle
-            popup(`${name} ${!value.get() ? "On" : "Off"}`);
         }
     }
 }
 
 // Takes a SettableEnumValue and cycles to the next one
 // Uses the enum's definition to figure out how to cycle around
-// if there's a less convoluted way to do that without hardcoding enum values
-// someone please tell me
 function enumCycleFunction(name, value) {
-    value.markInterested();
+
+
     const enumDefinition = value.enumDefinition();
     const valueCount = enumDefinition.getValueCount();
+
+    const onChange = (newValue) => { popup(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`); };
+    value.addValueObserver(onChange);
+
     return (status, data1, data2) => {
         if (data2 !== 0) {
+            // if there's a less convoluted way to do that without hardcoding enum values
             const currentId = value.get();
             const valueDefinition = enumDefinition.valueDefinitionFor(currentId);
             const currentIndex = valueDefinition.getValueIndex();
@@ -51,7 +59,6 @@ function enumCycleFunction(name, value) {
             const nextValue = enumDefinition.valueDefinitionAt(nextIndex);
             const nextId = nextValue.getId();
             value.set(nextId);
-            popup(`${name}: ${nextValue.getDisplayName()}`);
         }
     }
 }
@@ -120,9 +127,14 @@ REMOTE_CONTROLS.MODULATE_CONTROL = (param_id, bitwig) => {
 }
 
 REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
-    bitwig.remoteControls.selectedPageIndex().markInterested();
+
     bitwig.remoteControls.pageNames().markInterested();
     bitwig.remoteControls.pageCount().markInterested();
+
+    bitwig.remoteControls.selectedPageIndex().addValueObserver(
+        (newIndex) => { popup(bitwig.remoteControls.pageNames().get()[newIndex]); }
+    );
+
     return (status, data1, data2) => {
         if (page_index > bitwig.remoteControls.pageCount()) {
             popup(`Page ${page_index} not available`);
@@ -130,9 +142,6 @@ REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
         else {
             bitwig.remoteControls.selectedPageIndex().set(page_index);
 
-            const pageName = bitwig.remoteControls.pageNames().get()[page_index];
-
-            popup(pageName);
         }
     }
 }
