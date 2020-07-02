@@ -30,7 +30,10 @@ When in PROG CHANGE mode, the drum pads will allow you to jump between up to 16 
 
 When in CC mode, the drum pads have the following mapping:
 
+
 ![diagram of the drum pad CC mappings](Diagram.png)
+
+DISCLAIMER: These mappings are still subject to change. I'll try not to do so too often
 
 There is still 1 pad that does nothing, I'm open to suggestions.
 
