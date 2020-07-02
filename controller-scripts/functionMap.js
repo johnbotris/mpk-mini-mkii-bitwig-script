@@ -40,8 +40,8 @@ function createFunctionMap(host, application, transport, track, device, remoteCo
     functionMap[MAPPINGS.PROG1.PAD_CC_10] = TRANSPORT.PUNCH_IN(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_11] = TRANSPORT.PUNCH_OUT(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG1.PAD_CC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG1.PAD_CC_14] = UNMAPPED;
+    functionMap[MAPPINGS.PROG1.PAD_CC_13] = TRACK.PREV(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_14] = TRACK.NEXT(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_15] = TRANSPORT.AUTOMATION_WRITE_MODE(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_16] = TRANSPORT.PREROLL_MODE(bitwig); 
 

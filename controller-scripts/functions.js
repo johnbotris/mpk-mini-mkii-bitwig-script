@@ -1,12 +1,15 @@
 const TRANSPORT = {};
 const REMOTE_CONTROLS = {};
+const TRACK = {};
 
 /*
  * The function given to functionMap is (status, data1, data2)
  *
  * Using closures to help with initialization
  *
- * Some of these functions make assumptions about what will be triggering them (ie. pads or knobs)
+ * The functions are not agnostic to how they are being input (ie from knobs or pads),
+ * When a function is going to be triggered by the PADS in CC mode, you need to 
+ * check data2 because a pad sends a message on press and release
  */
 
 const DO_SHOW_POPUP = true;
@@ -89,6 +92,24 @@ TRANSPORT.TAP_TEMPO = (bitwig) => {
     }
 }
 
+TRACK.NEXT = (bitwig) => {
+    bitwig.track.name().addValueObserver((value) => { popup(value); });
+    return (status, data1, data2) => {
+        if (data2 !== 0) {
+            bitwig.track.selectNext();        
+        }
+    }
+}
+
+TRACK.PREV = (bitwig) => {
+    bitwig.track.name().addValueObserver((value) => { popup(value); });
+    return (status, data1, data2) => {
+        if (data2 !== 0) {
+            bitwig.track.selectPrevious();        
+        }
+    }
+}
+
 // TODO IDK this thing is for some reason only modulating the bottom right control
 REMOTE_CONTROLS.MODULATE_CONTROL = (param_id, bitwig) => {
     bitwig.remoteControls.getParameter(param_id).markInterested();
@@ -115,6 +136,7 @@ REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
         }
     }
 }
+
 
 UNMAPPED = () => { popup("Unmapped") }
 
