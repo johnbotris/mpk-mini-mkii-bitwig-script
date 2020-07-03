@@ -242,9 +242,7 @@ MAPPINGS.PROG4.JOYSTICK_UP    = 0xb02800;
 MAPPINGS.PROG4.JOYSTICK_DOWN  = 0xb02900;
 
 // To allow keys to be passed directly to bitwig
-MAPPINGS.NOTE_INPUTS = [
-    { 
-        name: "MPKmini mkII", 
-        masks: ["8?????", "9?????", "D?????", "E?????"]
-    },
-];
+MAPPINGS.NOTE_INPUT = { 
+    name: "MPKmini mkII", 
+    masks: ["8?????", "9?????", "D?????", "E?????"]
+};
