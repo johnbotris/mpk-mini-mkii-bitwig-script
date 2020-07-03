@@ -12,6 +12,10 @@ load("functions.js");
 
 function createFunctionMap(host, application, transport, track, device, remoteControls) {
 
+
+    const SCROLL_AMT = 20;
+    const SCROLL_SNAP = true;
+
     const functionMap = new Map();
 
     const bitwig = {
@@ -28,8 +32,8 @@ function createFunctionMap(host, application, transport, track, device, remoteCo
     /* Pad CC Bank A * * * * * * * 1 * */
     functionMap[MAPPINGS.PROG1.PAD_CC_1]  = TRANSPORT.PLAY(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_2]  = TRANSPORT.STOP(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG1.PAD_CC_4]  = UNMAPPED;
+    functionMap[MAPPINGS.PROG1.PAD_CC_3]  = TRANSPORT.SCROLL(-SCROLL_AMT, SCROLL_SNAP, bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_4]  = TRANSPORT.SCROLL(SCROLL_AMT, SCROLL_SNAP, bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_5]  = TRANSPORT.REC(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_6]  = TRANSPORT.LOOP(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_7]  = TRANSPORT.OVERDUB(bitwig);

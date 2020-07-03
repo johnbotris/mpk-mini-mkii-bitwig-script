@@ -99,6 +99,14 @@ TRANSPORT.TAP_TEMPO = (bitwig) => {
     }
 }
 
+TRANSPORT.SCROLL = (amount, doSnap, bitwig) => {
+    return (status, data1, data2) => {
+        if (data2 !== 0) {
+            bitwig.transport.incPosition(amount, doSnap);
+        }
+    }
+};
+
 TRACK.NEXT = (bitwig) => {
     bitwig.track.name().addValueObserver((value) => { popup(value); });
     return (status, data1, data2) => {
