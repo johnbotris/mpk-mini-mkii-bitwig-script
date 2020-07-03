@@ -28,22 +28,22 @@ function createFunctionMap(host, application, transport, track, device, remoteCo
     /* Pad CC Bank A * * * * * * * 1 * */
     functionMap[MAPPINGS.PROG1.PAD_CC_1]  = TRANSPORT.PLAY(bitwig);
     functionMap[MAPPINGS.PROG1.PAD_CC_2]  = TRANSPORT.STOP(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_3]  = TRANSPORT.REC(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_4]  = TRANSPORT.METRONOME(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_5]  = TRANSPORT.LOOP(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_6]  = TRANSPORT.OVERDUB(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_7]  = TRANSPORT.AUTOMATION_WRITE(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_8]  = TRANSPORT.PREROLL_METRONOME(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_3]  = UNMAPPED;
+    functionMap[MAPPINGS.PROG1.PAD_CC_4]  = UNMAPPED;
+    functionMap[MAPPINGS.PROG1.PAD_CC_5]  = TRANSPORT.REC(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_6]  = TRANSPORT.LOOP(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_7]  = TRANSPORT.OVERDUB(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_8]  = TRANSPORT.METRONOME(bitwig);
 
     /* Pad CC Bank B * * * * * * * 1 * */
-    functionMap[MAPPINGS.PROG1.PAD_CC_9]  = TRANSPORT.TAP_TEMPO(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_10] = TRANSPORT.PUNCH_IN(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_11] = TRANSPORT.PUNCH_OUT(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG1.PAD_CC_13] = TRACK.PREV(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_14] = TRACK.NEXT(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_15] = TRANSPORT.AUTOMATION_WRITE_MODE(bitwig);
-    functionMap[MAPPINGS.PROG1.PAD_CC_16] = TRANSPORT.PREROLL_MODE(bitwig); 
+    functionMap[MAPPINGS.PROG1.PAD_CC_9]  = TRACK.PREV(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_10] = TRACK.NEXT(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_11] = TRANSPORT.AUTOMATION_WRITE_MODE(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_12] = TRANSPORT.PREROLL_MODE(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_13] = TRANSPORT.PUNCH_IN(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_14] = TRANSPORT.PUNCH_OUT(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_15] = TRANSPORT.AUTOMATION_WRITE(bitwig);
+    functionMap[MAPPINGS.PROG1.PAD_CC_16] = TRANSPORT.TAP_TEMPO(bitwig);
 
     /* Pad PC Bank A * * * * * * * 1 * */
     functionMap[MAPPINGS.PROG1.PAD_PC_1]  = REMOTE_CONTROLS.SELECT_PAGE(0, bitwig);
