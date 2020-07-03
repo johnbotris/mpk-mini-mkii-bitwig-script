@@ -27,10 +27,8 @@ function init() {
         println(`(${(id | data2).toString(16)}) status: ${status}, data1: ${data1}, data2: ${data2}`)
     });
 
-    // Capture note inputs and send them directly to bitwig
-    for(let input of MAPPINGS.NOTE_INPUTS) {
-        let noteInput = host.getMidiInPort(0).createNoteInput(input.name, input.masks);
-        noteInput.setShouldConsumeEvents(true);
-    } 
+    host.getMidiInPort(0)
+        .createNoteInput(MAPPINGS.NOTE_INPUT.name, MAPPINGS.NOTE_INPUT.masks)
+        .setShouldConsumeEvents(true);
 }
 
