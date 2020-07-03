@@ -22,6 +22,8 @@ Then tell Bitwig to load the controller by going to _Dashboard -> Settings -> Co
 
 ## Program 1
 
+_DISCLAIMER: These mappings are still subject to change._
+
 The 8 knobs are mapped to the currently selected remote controls page of the currently selected device.
 
 When in neither CC nor PROG CHANGE mode, the drum pads map from C1 to D#2, which should match with most of the drum machine presets that come with Bitwig.
@@ -30,12 +32,7 @@ When in PROG CHANGE mode, the drum pads will allow you to jump between up to 16 
 
 When in CC mode, the drum pads have the following mapping:
 
-
 ![diagram of the drum pad CC mappings](Diagram.png)
-
-DISCLAIMER: These mappings are still subject to change. I'll try not to do so too often
-
-There is still 1 pad that does nothing, I'm open to suggestions.
 
 The Joystick maps to pitch bend on the Y axis, and send MIDI CC messages centered around 60 on the X axis (you can have it to send 0-127 on either side with separate data1 bytes via the MkII Editor, if you want). This you can map the usual way by selecting any control you want.
 
