@@ -42,7 +42,6 @@ function toggleFunction(name, value) {
 // Uses the enum's definition to figure out how to cycle around
 function enumCycleFunction(name, value) {
 
-
     const enumDefinition = value.enumDefinition();
     const valueCount = enumDefinition.getValueCount();
 
@@ -87,14 +86,16 @@ TRANSPORT.PREROLL_MODE          = (bitwig) => enumCycleFunction("Pre Roll Length
 TRANSPORT.PREROLL_METRONOME     = (bitwig) => toggleFunction("Pre Roll Metronome", bitwig.transport.isMetronomeAudibleDuringPreRoll());
 
 TRANSPORT.TAP_TEMPO = (bitwig) => {
-    const BITWIG_MAX_TEMPO = 666;
-    bitwig.transport.tempo().modulatedValue().markInterested();
+    bitwig.transport.tempo().modulatedValue().addValueObserver(
+        (tempo) => {
+            // not sure right now how to add value observer to tempo().modulatedValue().getRaw()
+            // will figure out when less sleepy
+            popup(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`);
+        }
+    );
     return (status, data1, data2) => {
         if (data2 !== 0) {
             bitwig.transport.tapTempo()
-
-            // this is always one tap behind, dont know how fix
-            popup(`Tap Tempo: ${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`);
         }
     }
 }
