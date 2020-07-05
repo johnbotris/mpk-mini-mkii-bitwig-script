@@ -20,6 +20,20 @@ const TRACK = {};
  */
 const DO_SHOW_POPUP = true;
 
+// Use this to allow a function to only be called based on the state of the return object
+// probably will only use to wrap popups, so that we only show popups when receiving midi from MPK
+// rather than whenever an observed value is changed
+// if fnSwitch.on then it will call the function and then change the switch to false, 
+// so it will have to be set again before the next time
+// I kinda hate this but i don't wanna copy paste the if condition all over the place
+function switchableFunction(fn) {
+    const fnSwitch = { on: false };
+    return 
+    [(...args) => {
+        if (fnSwitch.on) fn(...args); fnSwitch.on = false;
+    }, fnSwitch]
+}
+
 function popup(message) {
     if (DO_SHOW_POPUP) {
         host.showPopupNotification(message);
@@ -29,10 +43,15 @@ function popup(message) {
 
 // Takes a SettableBooleanValue to toggle
 function toggleFunction(name, value) {
-    const onChange = (newValue) => { popup(`${name} ${newValue ? "On" : "Off"}`); };
-    value.addValueObserver(onChange);
+
+    // ok this is starting to get confusing
+    let [onChangeFn, onChangeSwitch] =
+        switchableFunction((newValue) => { popup(`${name} ${newValue ? "On" : "Off"}`); });
+    value.addValueObserver(onChangeFn);
+
     return (status, data1, data2) => {
         if (data2 !== 0) {
+            onChangeSwitch.on = true;
             value.toggle();
         }
     }
@@ -44,9 +63,10 @@ function enumCycleFunction(name, value) {
 
     const enumDefinition = value.enumDefinition();
     const valueCount = enumDefinition.getValueCount();
+    const [onChangeFn, onChangeSwitch] =
+        switchableFunction((newValue) => { popup(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`) }); 
 
-    const onChange = (newValue) => { popup(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`); };
-    value.addValueObserver(onChange);
+    value.addValueObserver(onChangeFn);
 
     return (status, data1, data2) => {
         if (data2 !== 0) {
@@ -57,6 +77,8 @@ function enumCycleFunction(name, value) {
             const nextIndex = (currentIndex + 1) % valueCount;
             const nextValue = enumDefinition.valueDefinitionAt(nextIndex);
             const nextId = nextValue.getId();
+
+            onChangeSwitch.on = true;
             value.set(nextId);
         }
     }
