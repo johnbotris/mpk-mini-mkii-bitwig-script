@@ -18,24 +18,32 @@ const TRACK = {};
  * it's annoying that it also causes popups to show when interacting directly with bitwig and also at the initialization of the script. 
  * I can't see a way around this right now but the popups can be turned off by making the folloing constant false
  */
-const DO_SHOW_POPUP = true;
+const POPUPS_ON = true;
 
-// Use this to allow a function to only be called based on the state of the return object
-// probably will only use to wrap popups, so that we only show popups when receiving midi from MPK
-// rather than whenever an observed value is changed
-// if fnSwitch.on then it will call the function and then change the switch to false, 
-// so it will have to be set again before the next time
-// I kinda hate this but i don't wanna copy paste the if condition all over the place
-function switchableFunction(fn) {
-    const fnSwitch = { on: false };
-    return 
-    [(...args) => {
-        if (fnSwitch.on) fn(...args); fnSwitch.on = false;
-    }, fnSwitch]
+
+/*
+ * wraps popup with logic to only show when the value of switchObject.do === true
+ * would rather this could be generic and take varargs and a closure but bitwig doesnt support ...args yet?
+ * i thought about maybe the switchObject thing being an argument, rather than returning it.
+ * it's pretty ugly and confuse in the end either way, there should be a better way to do it
+ *
+ * i thought about doing this where popup.do is just a global var but im not sure if that could be buggy???
+ * if you press a bunch of stuff quickly or something... it'd probably be fine tbh you just have to remember to do the stuff
+ */
+function conditionalPopup() {
+    return {
+        fn: (message) => {
+                if (this.do) {
+                    popup(message);
+                    this.do = false;
+                }
+        },
+        do:false 
+    }
 }
 
 function popup(message) {
-    if (DO_SHOW_POPUP) {
+    if (POPUPS_ON) {
         host.showPopupNotification(message);
     }
 }
@@ -44,14 +52,12 @@ function popup(message) {
 // Takes a SettableBooleanValue to toggle
 function toggleFunction(name, value) {
 
-    // ok this is starting to get confusing
-    let [onChangeFn, onChangeSwitch] =
-        switchableFunction((newValue) => { popup(`${name} ${newValue ? "On" : "Off"}`); });
+    let popup = conditionalPopup()
+    let onChangeFn= (newValue) => { popup.fn(`${name} ${newValue ? "On" : "Off"}`); };
     value.addValueObserver(onChangeFn);
-
     return (status, data1, data2) => {
         if (data2 !== 0) {
-            onChangeSwitch.on = true;
+            popup.do = true;
             value.toggle();
         }
     }
@@ -63,8 +69,8 @@ function enumCycleFunction(name, value) {
 
     const enumDefinition = value.enumDefinition();
     const valueCount = enumDefinition.getValueCount();
-    const [onChangeFn, onChangeSwitch] =
-        switchableFunction((newValue) => { popup(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`) }); 
+    let popup = conditionalPopup();
+    let onChangeFn = (newValue) => { popup.fn(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`) };
 
     value.addValueObserver(onChangeFn);
 
@@ -78,7 +84,7 @@ function enumCycleFunction(name, value) {
             const nextValue = enumDefinition.valueDefinitionAt(nextIndex);
             const nextId = nextValue.getId();
 
-            onChangeSwitch.on = true;
+            popup.do = true;
             value.set(nextId);
         }
     }
@@ -108,15 +114,16 @@ TRANSPORT.PREROLL_MODE          = (bitwig) => enumCycleFunction("Pre Roll Length
 TRANSPORT.PREROLL_METRONOME     = (bitwig) => toggleFunction("Pre Roll Metronome", bitwig.transport.isMetronomeAudibleDuringPreRoll());
 
 TRANSPORT.TAP_TEMPO = (bitwig) => {
-    bitwig.transport.tempo().modulatedValue().addValueObserver(
-        (tempo) => {
-            // not sure right now how to add value observer to tempo().modulatedValue().getRaw()
-            // will figure out when less sleepy
-            popup(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`);
-        }
-    );
+
+    let popup = conditionalPopup();
+    // not sure right now how to add value observer to tempo().modulatedValue().getRaw()
+    // will figure out when less sleepy
+    let onChangeFn = (newValue) => { popup.fn(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`) };
+    bitwig.transport.tempo().modulatedValue().addValueObserver(onChangeFn);
+
     return (status, data1, data2) => {
         if (data2 !== 0) {
+            popup.do = true;
             bitwig.transport.tapTempo()
         }
     }
@@ -161,18 +168,17 @@ REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
 
     bitwig.remoteControls.pageNames().markInterested();
     bitwig.remoteControls.pageCount().markInterested();
-
-    bitwig.remoteControls.selectedPageIndex().addValueObserver(
-        (newIndex) => { popup(bitwig.remoteControls.pageNames().get()[newIndex]); }
-    );
+    let popup = conditionalPopup();
+    let onChangeFn = (newIndex) => { popup.fn(bitwig.remoteControls.pageNames().get()[newIndex]); }
+    bitwig.remoteControls.selectedPageIndex().addValueObserver(onChangeFn);
 
     return (status, data1, data2) => {
         if (page_index > bitwig.remoteControls.pageCount()) {
             popup(`Page ${page_index} not available`);
         }
         else {
+            popup.do = true;
             bitwig.remoteControls.selectedPageIndex().set(page_index);
-
         }
     }
 }
