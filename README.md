@@ -41,3 +41,5 @@ The Joystick maps to pitch bend on the Y axis, and send MIDI CC messages centere
 
 N/A
 
+## Help me out?
+If anything goes wrong, let me know! You can check the debug console by opening up the _Studio I/O Panel_ (select it on the bottom right), and clicking on _Show Control Script Console_. If there's a bunch of red text, let me know what it says.
