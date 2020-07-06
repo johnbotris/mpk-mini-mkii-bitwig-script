@@ -94,7 +94,7 @@ TRANSPORT.TAP_TEMPO = (bitwig) => {
 
     // not sure right now how to add value observer to tempo().modulatedValue().getRaw()
     // will figure out when less sleepy
-    let showPopup = true;
+    let showPopup = false;
     let onChangeFn = (newValue) => { if (showPopup) popup(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`); showPopup = false; };
     bitwig.transport.tempo().modulatedValue().addValueObserver(onChangeFn);
 
