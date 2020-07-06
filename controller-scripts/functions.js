@@ -53,7 +53,7 @@ function enumCycleFunction(name, value) {
 
     return (status, data1, data2) => {
         if (data2 !== 0) {
-            // if there's a less convoluted way to do that without hardcoding enum values
+            // let me know if there's a less convoluted way to do this..........
             const currentId = value.get();
             const valueDefinition = enumDefinition.valueDefinitionFor(currentId);
             const currentIndex = valueDefinition.getValueIndex();
