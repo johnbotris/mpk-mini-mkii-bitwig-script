@@ -126,7 +126,6 @@ TRACK.PREV = (bitwig) => {
     }
 }
 
-// TODO IDK this thing is for some reason only modulating the bottom right control
 REMOTE_CONTROLS.MODULATE_CONTROL = (param_id, bitwig) => {
     bitwig.remoteControls.getParameter(param_id).markInterested();
     bitwig.remoteControls.getParameter(param_id).setIndication(true);
