@@ -14,33 +14,9 @@ const TRACK = {};
 
 
 /*
- * Using addValueObserver to show popups from the pad functions is more or less necessary in order keep the popups in sync with the actual state of bitwig
- * it's annoying that it also causes popups to show when interacting directly with bitwig and also at the initialization of the script. 
- * I can't see a way around this right now but the popups can be turned off by making the folloing constant false
+ * set this to false to disable popups
  */
 const POPUPS_ON = true;
-
-
-/*
- * wraps popup with logic to only show when the value of switchObject.do === true
- * would rather this could be generic and take varargs and a closure but bitwig doesnt support ...args yet?
- * i thought about maybe the switchObject thing being an argument, rather than returning it.
- * it's pretty ugly and confuse in the end either way, there should be a better way to do it
- *
- * i thought about doing this where popup.do is just a global var but im not sure if that could be buggy???
- * if you press a bunch of stuff quickly or something... it'd probably be fine tbh you just have to remember to do the stuff
- */
-function conditionalPopup() {
-    return {
-        fn: (message) => {
-                if (this.do) {
-                    popup(message);
-                    this.do = false;
-                }
-        },
-        do:false 
-    }
-}
 
 function popup(message) {
     if (POPUPS_ON) {
@@ -52,12 +28,12 @@ function popup(message) {
 // Takes a SettableBooleanValue to toggle
 function toggleFunction(name, value) {
 
-    let popup = conditionalPopup()
-    let onChangeFn= (newValue) => { popup.fn(`${name} ${newValue ? "On" : "Off"}`); };
+    let showPopup = false
+    let onChangeFn= (newValue) => { if (showPopup) popup(`${name} ${newValue ? "On" : "Off"}`); showPopup = false; };
     value.addValueObserver(onChangeFn);
     return (status, data1, data2) => {
         if (data2 !== 0) {
-            popup.do = true;
+            showPopup = true;
             value.toggle();
         }
     }
@@ -69,8 +45,9 @@ function enumCycleFunction(name, value) {
 
     const enumDefinition = value.enumDefinition();
     const valueCount = enumDefinition.getValueCount();
-    let popup = conditionalPopup();
-    let onChangeFn = (newValue) => { popup.fn(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`) };
+
+    let showPopup = false;
+    let onChangeFn = (newValue) => { if (showPopup) popup(`${name}: ${enumDefinition.valueDefinitionFor(newValue).getDisplayName()}`); showPopup = false; };
 
     value.addValueObserver(onChangeFn);
 
@@ -84,7 +61,7 @@ function enumCycleFunction(name, value) {
             const nextValue = enumDefinition.valueDefinitionAt(nextIndex);
             const nextId = nextValue.getId();
 
-            popup.do = true;
+            showPopup = true;
             value.set(nextId);
         }
     }
@@ -115,15 +92,15 @@ TRANSPORT.PREROLL_METRONOME     = (bitwig) => toggleFunction("Pre Roll Metronome
 
 TRANSPORT.TAP_TEMPO = (bitwig) => {
 
-    let popup = conditionalPopup();
     // not sure right now how to add value observer to tempo().modulatedValue().getRaw()
     // will figure out when less sleepy
-    let onChangeFn = (newValue) => { popup.fn(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`) };
+    let showPopup = true;
+    let onChangeFn = (newValue) => { if (showPopup) popup(`${bitwig.transport.tempo().modulatedValue().getRaw().toFixed(2)}BPM`); showPopup = false; };
     bitwig.transport.tempo().modulatedValue().addValueObserver(onChangeFn);
 
     return (status, data1, data2) => {
         if (data2 !== 0) {
-            popup.do = true;
+            showPopup = true;
             bitwig.transport.tapTempo()
         }
     }
@@ -138,18 +115,22 @@ TRANSPORT.SCROLL = (amount, doSnap, bitwig) => {
 };
 
 TRACK.NEXT = (bitwig) => {
-    bitwig.track.name().addValueObserver((value) => { popup(value); });
+    let showPopup = false;
+    bitwig.track.name().addValueObserver((value) => { if(showPopup) popup(value); showPopup = false;});
     return (status, data1, data2) => {
         if (data2 !== 0) {
+            showPopup = true;
             bitwig.track.selectNext();        
         }
     }
 }
 
 TRACK.PREV = (bitwig) => {
-    bitwig.track.name().addValueObserver((value) => { popup(value); });
+    let showPopup = false;
+    bitwig.track.name().addValueObserver((value) => { if (showPopup) popup(value); showPopup = false;});
     return (status, data1, data2) => {
         if (data2 !== 0) {
+            showPopup = true;
             bitwig.track.selectPrevious();        
         }
     }
@@ -167,8 +148,8 @@ REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
 
     bitwig.remoteControls.pageNames().markInterested();
     bitwig.remoteControls.pageCount().markInterested();
-    let popup = conditionalPopup();
-    let onChangeFn = (newIndex) => { popup.fn(bitwig.remoteControls.pageNames().get()[newIndex]); }
+    let showPopup = false;
+    let onChangeFn = (newIndex) => { if (showPopup) popup(bitwig.remoteControls.pageNames().get()[newIndex]); showPopup = false; }
     bitwig.remoteControls.selectedPageIndex().addValueObserver(onChangeFn);
 
     return (status, data1, data2) => {
@@ -176,7 +157,7 @@ REMOTE_CONTROLS.SELECT_PAGE = (page_index, bitwig) => {
             popup(`Page ${page_index} not available`);
         }
         else {
-            popup.do = true;
+            showPopup = true;
             bitwig.remoteControls.selectedPageIndex().set(page_index);
         }
     }
