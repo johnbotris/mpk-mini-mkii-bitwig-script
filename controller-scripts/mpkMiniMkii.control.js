@@ -24,7 +24,7 @@ function init() {
             fn(status, data1, data2);
         } 
 
-        println(`(${(id | data2).toString(16)}) status: ${status}, data1: ${data1}, data2: ${data2}`)
+        // println(`(${(id | data2).toString(16)}) status: ${status}, data1: ${data1}, data2: ${data2}`)
     });
 
     host.getMidiInPort(0)
