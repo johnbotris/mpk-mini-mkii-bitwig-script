@@ -83,180 +83,181 @@ function createFunctionMap(host, application, transport, track, device, remoteCo
     functionMap[MAPPINGS.PROG1.JOYSTICK_X] = UNMAPPED; // This is free to be mapped from within Bitwig
     // functionMap[MAPPINGS.PROG1.JOYSTICK_Y] = UNMAPPED; // This is mapped directly to pitch bend in the MPK and will not be received by the script
 
-    /* * * PROGRAM 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
+    /* Uncomment these if you wanna map to them */
+    //// /* * * PROGRAM 2 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
 
-    /* Pad CC Bank A * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.PAD_CC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_8]  = UNMAPPED;
+    //// /* Pad CC Bank A * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_8]  = UNMAPPED;
 
-    /* Pad CC Bank B * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.PAD_CC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_CC_16] = UNMAPPED;
+    //// /* Pad CC Bank B * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_CC_16] = UNMAPPED;
 
-    /* Pad PC Bank A * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.PAD_PC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_8]  = UNMAPPED;
+    //// /* Pad PC Bank A * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_8]  = UNMAPPED;
 
-    /* Pad PC Bank B * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.PAD_PC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.PAD_PC_16] = UNMAPPED;
+    //// /* Pad PC Bank B * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.PAD_PC_16] = UNMAPPED;
 
-    /* Knobs * * * * * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.KNOB_1]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_2]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_3]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_4]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_5]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_6]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_7]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.KNOB_8]    = UNMAPPED;
+    //// /* Knobs * * * * * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.KNOB_1]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_2]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_3]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_4]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_5]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_6]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_7]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.KNOB_8]    = UNMAPPED;
 
-    /* Joystick  * * * * * * * * * 2 * */
-    functionMap[MAPPINGS.PROG2.JOYSTICK_LEFT]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.JOYSTICK_RIGHT] = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.JOYSTICK_UP]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG2.JOYSTICK_DOWN]  = UNMAPPED;
+    //// /* Joystick  * * * * * * * * * 2 * */
+    //// functionMap[MAPPINGS.PROG2.JOYSTICK_LEFT]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.JOYSTICK_RIGHT] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.JOYSTICK_UP]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG2.JOYSTICK_DOWN]  = UNMAPPED;
 
-    /* * * PROGRAM 3 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
+    //// /* * * PROGRAM 3 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
 
-    /* Pad CC Bank A * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.PAD_CC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_8]  = UNMAPPED;
+    //// /* Pad CC Bank A * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_8]  = UNMAPPED;
 
-    /* Pad CC Bank B * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.PAD_CC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_CC_16] = UNMAPPED;
+    //// /* Pad CC Bank B * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_CC_16] = UNMAPPED;
 
-    /* Pad PC Bank A * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.PAD_PC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_8]  = UNMAPPED;
+    //// /* Pad PC Bank A * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_8]  = UNMAPPED;
 
-    /* Pad PC Bank B * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.PAD_PC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.PAD_PC_16] = UNMAPPED;
+    //// /* Pad PC Bank B * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.PAD_PC_16] = UNMAPPED;
 
-    /* Knobs * * * * * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.KNOB_1]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_2]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_3]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_4]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_5]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_6]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_7]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.KNOB_8]    = UNMAPPED;
+    //// /* Knobs * * * * * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.KNOB_1]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_2]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_3]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_4]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_5]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_6]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_7]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.KNOB_8]    = UNMAPPED;
 
-    /* Joystick  * * * * * * * * * 3 * */
-    functionMap[MAPPINGS.PROG3.JOYSTICK_LEFT]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.JOYSTICK_RIGHT] = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.JOYSTICK_UP]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG3.JOYSTICK_DOWN]  = UNMAPPED;
+    //// /* Joystick  * * * * * * * * * 3 * */
+    //// functionMap[MAPPINGS.PROG3.JOYSTICK_LEFT]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.JOYSTICK_RIGHT] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.JOYSTICK_UP]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG3.JOYSTICK_DOWN]  = UNMAPPED;
 
 
-    /* * * PROGRAM 4 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
+    //// /* * * PROGRAM 4 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */ 
 
-    /* Pad CC Bank A * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.PAD_CC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_8]  = UNMAPPED;
+    //// /* Pad CC Bank A * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_8]  = UNMAPPED;
 
-    /* Pad CC Bank B * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.PAD_CC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_CC_16] = UNMAPPED;
+    //// /* Pad CC Bank B * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_CC_16] = UNMAPPED;
 
-    /* Pad PC Bank A * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.PAD_PC_1]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_2]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_3]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_4]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_5]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_6]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_7]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_8]  = UNMAPPED;
+    //// /* Pad PC Bank A * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_1]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_2]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_3]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_4]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_5]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_6]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_7]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_8]  = UNMAPPED;
 
-    /* Pad PC Bank B * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.PAD_PC_9]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_10] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_11] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_12] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_13] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_14] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_15] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.PAD_PC_16] = UNMAPPED;
+    //// /* Pad PC Bank B * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_9]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_10] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_11] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_12] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_13] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_14] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_15] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.PAD_PC_16] = UNMAPPED;
 
-    /* Knobs * * * * * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.KNOB_1]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_2]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_3]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_4]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_5]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_6]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_7]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.KNOB_8]    = UNMAPPED;
+    //// /* Knobs * * * * * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.KNOB_1]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_2]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_3]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_4]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_5]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_6]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_7]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.KNOB_8]    = UNMAPPED;
 
-    /* Joystick  * * * * * * * * * 4 * */
-    functionMap[MAPPINGS.PROG4.JOYSTICK_LEFT]  = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.JOYSTICK_RIGHT] = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.JOYSTICK_UP]    = UNMAPPED;
-    functionMap[MAPPINGS.PROG4.JOYSTICK_DOWN]  = UNMAPPED;
+    //// /* Joystick  * * * * * * * * * 4 * */
+    //// functionMap[MAPPINGS.PROG4.JOYSTICK_LEFT]  = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.JOYSTICK_RIGHT] = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.JOYSTICK_UP]    = UNMAPPED;
+    //// functionMap[MAPPINGS.PROG4.JOYSTICK_DOWN]  = UNMAPPED;
 
     return functionMap;
 }
