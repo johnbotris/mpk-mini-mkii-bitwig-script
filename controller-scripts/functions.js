@@ -32,10 +32,9 @@ function toggleFunction(name, value) {
     let onChangeFn= (newValue) => { if (showPopup) popup(`${name} ${newValue ? "On" : "Off"}`); showPopup = false; };
     value.addValueObserver(onChangeFn);
     return (status, data1, data2) => {
-        if (data2 !== 0) {
-            showPopup = true;
-            value.toggle();
-        }
+        showPopup = true;
+        // Turns off when it gets a 0 else on
+        value.set(data2 !== 0);
     }
 }
 
