@@ -12,7 +12,7 @@ Clone this repo into your Controller Scripts directory which by default is:
 
 * Mac: _~/Documents/Bitwig Studio/Controller Scripts_
 
-(You can clone it wherever you want, just make sure the contents of `controller-scripts/` end up within your Controller Scripts somehow
+(You can clone it wherever you want, just make sure the contents of `controller-scripts/` end up within your Controller Scripts somehow)
 
 Then using the MPK MkII Editor, load _at least_ `program1.mk2` from `mk2-programs/` onto your MPK (The controller script currently only provides mappings for the first program, so the other 3 can be free for other uses)
 
