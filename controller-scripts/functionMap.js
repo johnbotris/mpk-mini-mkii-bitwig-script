@@ -16,7 +16,7 @@ function createFunctionMap(host, application, transport, track, device, remoteCo
     const SCROLL_AMT = 20;
     const SCROLL_SNAP = true;
 
-    const functionMap = new Map();
+    const functionMap = {};
 
     const bitwig = {
         host: host,
