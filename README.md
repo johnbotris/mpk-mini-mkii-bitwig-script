@@ -1,6 +1,4 @@
-# MPK Mini MKII Programs + Controller Scripts for Bitwig
-
-The [original controller script](https://github.com/trixtan/MpkMiniMkIIBC) for the MPK mini MkII seems to have been thoroughly abandoned, and no longer works with newer versions of Bitwig. I had planned on simply fixing that up but I ended up just making a brand new controller
+# MPK Mini MKII Programs + Controller Scripts for Bitwig 3
 
 # Installation
 
@@ -22,7 +20,6 @@ Then tell Bitwig to load the controller by going to _Dashboard -> Settings -> Co
 
 ## Program 1
 
-_DISCLAIMER: These mappings are still subject to change._
 
 The 8 knobs are mapped to the currently selected remote controls page of the currently selected device.
 
